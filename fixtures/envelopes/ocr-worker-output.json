@@ -1,0 +1,31 @@
+{
+  "type": "document/ocr-geometry",
+  "version": "1.0.0",
+  "source": "m-mcp/ocr-geometry-worker",
+  "data": {
+    "markdown": "Quick Start",
+    "text": "Quick Start",
+    "blocks": [
+      {
+        "id": "p1-paragraph-1",
+        "type": "paragraph",
+        "text": "Quick Start",
+        "page": 1,
+        "confidence": 0.9
+      }
+    ],
+    "summary": {
+      "pages": 1,
+      "blockCount": 1,
+      "headingCount": 0,
+      "listCount": 0,
+      "tableCount": 0,
+      "codeCount": 0,
+      "ambiguityCount": 0
+    },
+    "debug": {
+      "warnings": [],
+      "ambiguousBlocks": []
+    }
+  }
+}

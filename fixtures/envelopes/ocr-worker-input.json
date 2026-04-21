@@ -1,0 +1,18 @@
+{
+  "id": "env-ocr-worker-input",
+  "type": "document/ocr-tsv",
+  "version": "1.0.0",
+  "source": "fixture",
+  "createdAt": 1760000000000,
+  "data": {
+    "provider": "tesseract",
+    "sourceType": "ocr-tsv",
+    "payload": "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n5\t1\t1\t1\t1\t1\t72\t64\t54\t24\t96\tQuick\n5\t1\t1\t1\t1\t2\t136\t64\t72\t24\t95\tStart",
+    "pageWidth": 1200,
+    "pageHeight": 1600,
+    "options": {
+      "enableTableInference": false,
+      "enableCodeInference": false
+    }
+  }
+}

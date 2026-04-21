@@ -53,3 +53,8 @@ export * from "./errors/ExecutionPolicyError.js";
 
 export * from "./builtins/workers/noopWorker.js";
 export * from "./builtins/tools/noopTool.js";
+
+export * from "./adapters/ocrGeometry/types.js";
+export * from "./adapters/ocrGeometry/mapInputToEngine.js";
+export * from "./adapters/ocrGeometry/mapEngineOutputToEnvelope.js";
+export * from "./adapters/ocrGeometry/createOcrGeometryWorker.js";

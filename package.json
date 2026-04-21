@@ -33,6 +33,9 @@
   ],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "post-ocr-geometry-engine": "file:../post-ocr-geometry-engine"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.9.0",
     "typescript": "^5.6.0",
