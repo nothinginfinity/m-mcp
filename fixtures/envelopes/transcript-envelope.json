@@ -1,0 +1,11 @@
+{
+  "id": "env-transcript-1",
+  "type": "audio/transcript",
+  "version": "1.0.0",
+  "source": "transcript-normalizer",
+  "createdAt": 1760000000000,
+  "data": {
+    "turns": []
+  },
+  "confidence": 0.88
+}

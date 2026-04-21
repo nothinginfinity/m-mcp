@@ -1,0 +1,15 @@
+{
+  "id": "env-amb-1",
+  "type": "document/ocr-blocks",
+  "version": "1.0.0",
+  "source": "post-ocr-geometry-engine",
+  "createdAt": 1760000000000,
+  "data": {
+    "blocks": []
+  },
+  "confidence": 0.54,
+  "ambiguity": {
+    "level": "medium",
+    "reasons": ["code-low-symbol-density", "sparse-word-count"]
+  }
+}

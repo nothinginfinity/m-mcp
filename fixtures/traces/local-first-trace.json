@@ -1,0 +1,16 @@
+{
+  "traceId": "trace-1",
+  "startedAt": 1760000000000,
+  "finishedAt": 1760000000500,
+  "steps": [
+    {
+      "capabilityId": "worker.ocr.geometry",
+      "capabilityKind": "worker",
+      "startedAt": 1760000000000,
+      "finishedAt": 1760000000500,
+      "success": true,
+      "inputType": "image/document",
+      "outputType": "document/ocr-blocks"
+    }
+  ]
+}

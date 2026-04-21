@@ -1,0 +1,12 @@
+{
+  "id": "env-ocr-1",
+  "type": "document/ocr-blocks",
+  "version": "1.0.0",
+  "source": "post-ocr-geometry-engine",
+  "createdAt": 1760000000000,
+  "data": {
+    "markdown": "# Example",
+    "blocks": []
+  },
+  "confidence": 0.92
+}
