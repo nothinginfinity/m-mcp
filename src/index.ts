@@ -39,6 +39,9 @@ export * from "./workers/workerRuntime.js";
 export * from "./tools/createToolCapability.js";
 export * from "./tools/toolRuntime.js";
 
+export * from "./policies/createStaticPolicy.js";
+export * from "./policies/combinePolicyDecisions.js";
+export * from "./policies/defaultPolicies.js";
 export * from "./policies/localFirstPolicy.js";
 export * from "./policies/mobileSafePolicy.js";
 export * from "./policies/ambiguityEscalationPolicy.js";

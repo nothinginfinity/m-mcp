@@ -1,6 +1,7 @@
 import type { CapabilityMetadata } from "../types/capability.js";
 import type { ContextEnvelope } from "../types/envelope.js";
 import type { ExecutionDecision, ExecutionPolicy } from "../types/policy.js";
+import { combinePolicyDecisions } from "../policies/combinePolicyDecisions.js";
 
 export function evaluatePolicies(
   policies: ExecutionPolicy[],
@@ -14,6 +15,12 @@ export function findBlockingDecision(
   decisions: ExecutionDecision[],
 ): ExecutionDecision | undefined {
   return decisions.find((decision) => !decision.allowed);
+}
+
+export function combineEvaluatedPolicies(
+  decisions: ExecutionDecision[],
+): ExecutionDecision {
+  return combinePolicyDecisions(decisions);
 }
 
 export function composePolicies(policies: ExecutionPolicy[]): ExecutionPolicy[] {
