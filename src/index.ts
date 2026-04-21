@@ -8,8 +8,12 @@ export * from "./types/trace.js";
 export * from "./types/execution.js";
 
 export * from "./envelope/createEnvelope.js";
+export * from "./envelope/createEnvelopeId.js";
 export * from "./envelope/validateEnvelope.js";
 export * from "./envelope/mergeEnvelopeMetadata.js";
+export * from "./envelope/addEscalationHint.js";
+export * from "./envelope/cloneEnvelope.js";
+export * from "./envelope/normalizeEnvelope.js";
 
 export * from "./registry/capabilityRegistry.js";
 export * from "./registry/registerWorker.js";

@@ -1,14 +1,16 @@
 import type { AmbiguityInfo } from "./ambiguity.js";
 
+export type EscalationSuggestedAction =
+  | "llm-cleanup"
+  | "manual-review"
+  | "retry"
+  | "route-elsewhere"
+  | "preserve-as-raw";
+
 export interface EscalationHint {
   recommended: boolean;
   reason: string;
-  suggestedAction:
-    | "llm-cleanup"
-    | "manual-review"
-    | "retry"
-    | "route-elsewhere"
-    | "preserve-as-raw";
+  suggestedAction: EscalationSuggestedAction;
 }
 
 export interface ContextEnvelope<TData = unknown> {
