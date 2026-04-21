@@ -68,3 +68,16 @@ The host application may:
 - save it
 - continue with another capability
 - escalate to review or cleanup
+
+## Example OCR flow
+
+```text
+OCR payload
+→ envelope(document/ocr-tsv)
+→ worker.ocr.geometry
+→ envelope(document/ocr-geometry)
+→ inspect ambiguity
+→ optional cleanup task envelope
+→ tool.remote.cleanup
+→ envelope(document/cleanup-results)
+```

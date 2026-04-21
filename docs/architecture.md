@@ -50,6 +50,12 @@ A reusable rule set that determines whether execution is allowed, preferred, or 
 **Trace**
 A record of what executed, when, and with what outcome.
 
+## Integration principle
+
+Host applications should consume M-MCP through narrow integration boundaries.
+
+M-MCP should not be smeared across host codebases as random helper imports.
+
 ## Design goal
 
 The system is meant to preserve the useful parts of MCP-like capability composition while avoiding assumptions that do not fit mobile or constrained runtime environments.

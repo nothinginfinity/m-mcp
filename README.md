@@ -37,6 +37,7 @@ This repo provides:
 - bounded orchestrator
 - execution policy helpers
 - trace model
+- worker and tool adapter patterns
 - integration docs for host apps
 
 ## What this repo does not do
@@ -90,16 +91,39 @@ M-MCP is designed for constrained environments:
 
 ## Canonical first worker
 
-The first canonical M-MCP worker is:
+- worker.ocr.geometry
 
-- post-ocr-geometry-engine
+This wraps post-ocr-geometry-engine as the first canonical M-MCP worker.
 
-It demonstrates the intended pattern:
+## Canonical first remote tool
 
-- raw OCR or page input
-- deterministic structure reconstruction
-- confidence and ambiguity output
-- optional escalation only for weak blocks
+- tool.remote.cleanup
+
+This demonstrates block-scoped remote cleanup as a tool adapter rather than a hidden whole-document fallback.
+
+## Integration philosophy
+
+M-MCP should be consumed by host apps through narrow adapter boundaries.
+
+**InfinityPaste**
+
+Use M-MCP to:
+
+- wrap OCR input in envelopes
+- run deterministic workers first
+- inspect confidence/ambiguity
+- optionally route flagged blocks to cleanup tools
+- persist structured results
+
+**Studio-OS-Chat**
+
+Use M-MCP to:
+
+- register capabilities
+- construct envelopes from app events
+- run bounded orchestration
+- inspect traces and results
+- render or route structured output
 
 ## Install
 
@@ -125,6 +149,19 @@ npm run test
 npm run test:watch
 ```
 
+## Commit roadmap
+
+1. chore(init): scaffold M-MCP repo with core protocol types and project config
+2. feat(envelope): add context envelope creation and validation helpers
+3. feat(registry): add in-memory capability registry for workers and tools
+4. feat(orchestrator): add bounded orchestrator with execution trace support
+5. feat(policies): add local-first mobile-safe and ambiguity escalation policies
+6. feat(workers): add worker and tool capability factory helpers
+7. docs(protocol): document worker tool envelope and orchestrator model
+8. feat(adapter): add OCR geometry worker adapter as first canonical M-MCP worker
+9. feat(tool): add remote cleanup tool adapter example
+10. docs(integration): add InfinityPaste and Studio-OS-Chat integration guides
+
 ## Documentation map
 
 - docs/architecture.md
@@ -139,8 +176,13 @@ npm run test:watch
 - docs/worker-patterns.md
 - docs/capability-design-rules.md
 - docs/glossary.md
+- docs/integration-boundaries.md
+- docs/integration-checklist.md
 - docs/integration-infinitypaste.md
+- docs/infinitypaste-runtime-flow.md
 - docs/integration-studio-os-chat.md
+- docs/studio-os-chat-runtime-flow.md
+- docs/ocr-worker-to-cleanup-tool-flow.md
 
 ## License
 
