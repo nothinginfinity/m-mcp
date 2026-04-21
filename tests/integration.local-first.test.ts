@@ -16,7 +16,6 @@ describe("local-first integration", () => {
     const input = createEnvelope({
       id: "env-local",
       type: "document/raw",
-      version: "1.0.0",
       source: "test",
       data: { text: "hello" },
     });
@@ -29,5 +28,6 @@ describe("local-first integration", () => {
 
     expect(result.output.data).toEqual({ text: "hello" });
     expect(result.trace.steps[0]?.capabilityId).toBe("worker.noop");
+    expect(result.escalationRecommended).toBe(false);
   });
 });

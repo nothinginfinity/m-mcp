@@ -2,6 +2,7 @@ import type { ContextEnvelope } from "../types/envelope.js";
 import type { RuntimeExecutionContext } from "../types/execution.js";
 import type { ExecutionTrace } from "../types/trace.js";
 import type { RegisteredCapability } from "../registry/capabilityRegistry.js";
+import { appendTraceStep } from "./traceExecution.js";
 
 export async function executeCapability(
   capability: RegisteredCapability,
@@ -14,7 +15,7 @@ export async function executeCapability(
   try {
     const output = await capability.run(input, context);
 
-    trace.steps.push({
+    appendTraceStep(trace, {
       capabilityId: capability.metadata.id,
       capabilityKind: capability.metadata.kind,
       startedAt,
@@ -27,7 +28,7 @@ export async function executeCapability(
 
     return output;
   } catch (error) {
-    trace.steps.push({
+    appendTraceStep(trace, {
       capabilityId: capability.metadata.id,
       capabilityKind: capability.metadata.kind,
       startedAt,

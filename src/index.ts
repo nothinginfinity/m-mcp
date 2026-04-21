@@ -30,6 +30,8 @@ export * from "./orchestrator/executeCapability.js";
 export * from "./orchestrator/shouldEscalate.js";
 export * from "./orchestrator/executionPolicy.js";
 export * from "./orchestrator/traceExecution.js";
+export * from "./orchestrator/createExecutionContext.js";
+export * from "./orchestrator/finalizeTrace.js";
 
 export * from "./workers/createWorkerCapability.js";
 export * from "./workers/workerRuntime.js";

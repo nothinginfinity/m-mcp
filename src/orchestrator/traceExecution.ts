@@ -1,4 +1,4 @@
-import type { ExecutionTrace } from "../types/trace.js";
+import type { ExecutionTrace, ExecutionTraceStep } from "../types/trace.js";
 
 export function createExecutionTrace(traceId?: string): ExecutionTrace {
   return {
@@ -6,4 +6,12 @@ export function createExecutionTrace(traceId?: string): ExecutionTrace {
     startedAt: Date.now(),
     steps: [],
   };
+}
+
+export function appendTraceStep(
+  trace: ExecutionTrace,
+  step: ExecutionTraceStep,
+): ExecutionTrace {
+  trace.steps.push(step);
+  return trace;
 }
