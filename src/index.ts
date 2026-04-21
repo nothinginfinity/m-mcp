@@ -19,6 +19,11 @@ export * from "./registry/capabilityRegistry.js";
 export * from "./registry/registerWorker.js";
 export * from "./registry/registerTool.js";
 export * from "./registry/lookupCapability.js";
+export * from "./registry/listCapabilities.js";
+export * from "./registry/listWorkers.js";
+export * from "./registry/listTools.js";
+export * from "./registry/hasCapability.js";
+export * from "./registry/unregisterCapability.js";
 
 export * from "./orchestrator/orchestrate.js";
 export * from "./orchestrator/executeCapability.js";

@@ -1,14 +1,9 @@
 import type { CapabilityKind } from "../types/capability.js";
 import type { CapabilityRegistry } from "./capabilityRegistry.js";
 
-export function lookupCapability(
+export function listCapabilities(
   registry: CapabilityRegistry,
-  id: string,
   kind?: CapabilityKind,
 ) {
-  if (kind) {
-    return registry.lookupByKind(id, kind);
-  }
-
-  return registry.lookup(id);
+  return registry.list(kind);
 }
