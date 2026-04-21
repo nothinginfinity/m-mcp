@@ -58,3 +58,7 @@ export * from "./adapters/ocrGeometry/types.js";
 export * from "./adapters/ocrGeometry/mapInputToEngine.js";
 export * from "./adapters/ocrGeometry/mapEngineOutputToEnvelope.js";
 export * from "./adapters/ocrGeometry/createOcrGeometryWorker.js";
+
+export * from "./adapters/remoteCleanup/types.js";
+export * from "./adapters/remoteCleanup/defaultRemoteCleanupFetcher.js";
+export * from "./adapters/remoteCleanup/createRemoteCleanupTool.js";

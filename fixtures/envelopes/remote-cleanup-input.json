@@ -1,0 +1,19 @@
+{
+  "id": "env-remote-cleanup-input",
+  "type": "document/cleanup-tasks",
+  "version": "1.0.0",
+  "source": "fixture",
+  "createdAt": 1760000000000,
+  "data": {
+    "documentId": "doc-1",
+    "tasks": [
+      {
+        "blockId": "block-7",
+        "blockType": "code",
+        "text": "return x;",
+        "reason": "code-low-symbol-density",
+        "suggestedAction": "llm-cleanup"
+      }
+    ]
+  }
+}

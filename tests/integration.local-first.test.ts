@@ -2,10 +2,12 @@ import { describe, expect, it } from "vitest";
 import {
   CapabilityRegistry,
   createEnvelope,
+  createRemoteCleanupTool,
   localFirstPolicy,
   noopWorker,
   ocrGeometryWorker,
   orchestrate,
+  registerTool,
   registerWorker,
   runWorkerCapability,
 } from "../src/index.js";
@@ -77,5 +79,52 @@ describe("local-first integration", () => {
 
     expect(result.output.type).toBe("document/ocr-geometry");
     expect(result.trace.steps[0]?.capabilityId).toBe("worker.ocr.geometry");
+  });
+
+  it("allows a remote cleanup tool to run as a non-local capability", async () => {
+    const registry = new CapabilityRegistry();
+
+    const tool = createRemoteCleanupTool({
+      fetcher: async ({ input }) => ({
+        cleanedBlocks: input.tasks.map((task) => ({
+          blockId: task.blockId,
+          cleanedText: task.text ?? "",
+          notes: [],
+        })),
+        summary: {
+          taskCount: input.tasks.length,
+          cleanedCount: input.tasks.length,
+          unresolvedCount: 0,
+        },
+        warnings: [],
+      }),
+    });
+
+    registerTool(registry, tool);
+
+    const input = createEnvelope({
+      type: "document/cleanup-tasks",
+      source: "test",
+      data: {
+        documentId: "doc-4",
+        tasks: [
+          {
+            blockId: "block-9",
+            blockType: "code",
+            text: "return x;",
+            reason: "code-low-symbol-density",
+            suggestedAction: "llm-cleanup",
+          },
+        ],
+      },
+    });
+
+    const result = await orchestrate(registry, input, {
+      capabilityId: "tool.remote.cleanup",
+      host: "mobile",
+    });
+
+    expect(result.output.type).toBe("document/cleanup-results");
+    expect(result.trace.steps[0]?.capabilityId).toBe("tool.remote.cleanup");
   });
 });

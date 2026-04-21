@@ -1,0 +1,20 @@
+{
+  "type": "document/cleanup-results",
+  "version": "1.0.0",
+  "source": "m-mcp/remote-cleanup-tool",
+  "data": {
+    "cleanedBlocks": [
+      {
+        "blockId": "block-7",
+        "cleanedText": "return x;",
+        "notes": ["reason: code-low-symbol-density"]
+      }
+    ],
+    "summary": {
+      "taskCount": 1,
+      "cleanedCount": 1,
+      "unresolvedCount": 0
+    },
+    "warnings": []
+  }
+}
