@@ -1,0 +1,41 @@
+{
+  "name": "m-mcp",
+  "version": "0.1.0",
+  "description": "Mobile-native capability protocol runtime for workers, tools, envelopes, and bounded orchestration.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "keywords": [
+    "mcp",
+    "mobile",
+    "protocol",
+    "workers",
+    "orchestration",
+    "context"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.4"
+  }
+}
