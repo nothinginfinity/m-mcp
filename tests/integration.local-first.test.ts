@@ -6,6 +6,7 @@ import {
   noopWorker,
   orchestrate,
   registerWorker,
+  runWorkerCapability,
 } from "../src/index.js";
 
 describe("local-first integration", () => {
@@ -29,5 +30,21 @@ describe("local-first integration", () => {
     expect(result.output.data).toEqual({ text: "hello" });
     expect(result.trace.steps[0]?.capabilityId).toBe("worker.noop");
     expect(result.escalationRecommended).toBe(false);
+  });
+
+  it("can run the same worker directly through worker runtime helpers", async () => {
+    const input = createEnvelope({
+      id: "env-direct",
+      type: "document/raw",
+      source: "test",
+      data: { text: "hello-direct" },
+    });
+
+    const output = await runWorkerCapability(noopWorker, input, {
+      host: "mobile",
+    });
+
+    expect(output.data).toEqual({ text: "hello-direct" });
+    expect(output.source).toBe("m-mcp/noop-worker");
   });
 });
